@@ -4,25 +4,33 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        if not nums:
+        n = len(nums)
+        if not nums or n < 3:
             return []
-        d = {}
-        l = len(nums)
-        result = []
         nums.sort()
-        for i in range(l):
-            if nums[i] > 0:
-                break
-            for j in range(i+1, l):
-                if (nums[i]+nums[j]) not in d:
-                    d[nums[i]+nums[j]] = []
-                d[nums[i]+nums[j]].append([i, j])
+        if nums[0] > 0 or nums[n-1] < 0:
+            return []
 
-        for i, x in enumerate(nums):
-            if (-x) in d:
-                for num in d[-x]:
-                    if i not in num:
-                        temp = sorted([nums[i], nums[num[0]], nums[num[1]]])
-                        if temp not in result:
-                            result.append(temp)
+        result = []
+
+        for i in range(n):
+            if nums[i] > 0:
+                return result
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            L = i + 1
+            R = n - 1
+            while L < R:
+                if nums[i] + nums[L] + nums[R] == 0:
+                    result.append([nums[i], nums[L], nums[R]])
+                    while L < R and nums[L] == nums[L+1]:
+                        L += 1
+                    while L < R and nums[R] == nums[R-1]:
+                        R -= 1
+                    L += 1
+                    R -= 1
+                elif nums[i] + nums[L] + nums[R] > 0:
+                    R -= 1
+                else:
+                    L += 1
         return result
