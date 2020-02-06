@@ -10,8 +10,9 @@ def binary_search(nums, target, flag=True):
             low = mid+1
     return low if flag else low - 1
 
-target = 8
-nums = [1, 4, 5, 8, 8, 8, 9]
-left = search(nums, target, flag=True)
-right = search(nums, target, flag=False)
-print(left, right)
+if __name__ == "__main__":    
+    target = 8
+    nums = [1, 4, 5, 8, 8, 8, 9]
+    left = search(nums, target, flag=True)
+    right = search(nums, target, flag=False)
+    print(left, right)
