@@ -1,5 +1,5 @@
 class Solution(object):
-    def permute(self, nums):
+    def permuteUnique(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
@@ -19,13 +19,16 @@ class Solution(object):
             res.append(path[:])
             return
         for index in range(len(candidates)):
+            if index != 0 and candidates[index] == candidates[index-1]:
+                continue
             path.append(candidates[index])
             self.backtrace(candidates[:index]+candidates[index+1:], path, res)
             path.pop()
 
 
+
 if __name__ == '__main__':
-    candidates = [2, 3, 6, 7]
+    candidates = [2, 2, 6]
     solution = Solution()
-    result = solution.permute(candidates)
+    result = solution.permuteUnique(candidates)
     print(result)
