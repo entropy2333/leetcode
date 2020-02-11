@@ -1,5 +1,5 @@
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
+    def setZeroes(self, matrix):
         """
         Do not return anything, modify matrix in-place instead.
         """
@@ -29,3 +29,9 @@ class Solution:
         if (flag_line):
             for i in range(n):
                 matrix[0][i] = 0
+
+if __name__ == "__main__":
+    s = Solution()
+    matrix = [[1,0,1],[1,0,1],[1,1,1]]
+    s.setZeroes(matrix)
+    print('res: {}'.format(matrix))

@@ -25,10 +25,8 @@ class Solution(object):
             self.backtrace(candidates[:index]+candidates[index+1:], path, res)
             path.pop()
 
-
-
 if __name__ == '__main__':
-    candidates = [2, 2, 6]
+    candidates = [1, 2, 6]
     solution = Solution()
     result = solution.permuteUnique(candidates)
     print(result)
