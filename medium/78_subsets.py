@@ -7,7 +7,7 @@ class Solution(object):
         def backtrace(begin, path=[]):
             # print("candidates: {} path: {} res: {}".format(candidates, path))
             res.append(path[:])
-            for index in range(begin, n):
+            for index in range(begin, len(nums)):
                 path.append(nums[index])
                 backtrace(index + 1, path)
                 path.pop()

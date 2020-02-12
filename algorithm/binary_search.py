@@ -4,7 +4,7 @@ def binary_search(nums, target, flag=True):
 
     while low < high:
         mid = (low + high) // 2
-        if nums[mid] > target or (flag and target == nums[mid]):
+        if target < nums[mid] or (flag and target == nums[mid]):
             high = mid
         else:
             low = mid+1
