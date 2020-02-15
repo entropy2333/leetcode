@@ -112,7 +112,7 @@ class BTree(object):
             self.right.leaves()
 
     # 利用Graphviz实现二叉树的可视化
-    def print_tree(self, save_path='./Binary_Tree.gv', label=False):
+    def print_tree(self, save_path='./data_struct/Binary_Tree.gv', label=False):
 
         # colors for labels of nodes
         colors = ['skyblue', 'tomato', 'orange', 'purple', 'green', 'yellow', 'pink', 'red']
